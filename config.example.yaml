@@ -1,0 +1,66 @@
+# =====================================================================
+# Configuração do Pipeline de Automação de Dados - PFAT 2026 (Exemplo)
+# =====================================================================
+# Copie este arquivo para "config.yaml" e ajuste conforme seu ambiente:
+#   cp config.example.yaml config.yaml
+
+# 1. Estrutura de Diretórios Organizada
+diretorios:
+  base: "dados_base"          # Arquivo base fixo que não muda (identificação operacional)
+  entrada: "dados_entrada"    # Arquivos de resultados das pesquisas bimestrais
+  saida: "dados_saida"        # Arquivo final para o Power BI e histórico de execuções
+  logs: "logs"                # Logs de monitoramento e auditoria
+
+# 2. Caminhos dos Arquivos
+arquivos:
+  # Planilha base fixa de identificação operacional
+  identificacao: "dados_base/BD_Identificacao_Operacional_USER.ID.xlsx"
+  
+  # Planilha de resultados recebida a cada rodada da pesquisa
+  resultados: "dados_entrada/Compilado_resultados_PFAT_2026.xlsx"
+  
+  # Arquivo Excel fixo que alimenta o Power BI (sempre com o mesmo nome e caminho)
+  saida_excel: "dados_saida/Final_CSV.xlsx"
+  
+  # Se true, salva uma cópia adicional com data e hora (ex: Final_CSV_20261016_123000.xlsx)
+  gerar_historico: true
+  
+  # Arquivo de LOG detalhado com tempo de cada etapa e rastreamento de erros
+  caminho_log: "logs/automacao_pfat.log"
+
+# 3. Conexão com o Banco de Dados
+banco:
+  host: "localhost"           # Mude para o IP do seu banco (ex: localhost ou IP da VM)
+  port: 3306
+  user: "seu_usuario"
+  password: "sua_senha"
+  database: "pfat_database"
+  tabela: "contatos_pfat"
+
+# 4. Mapeamento de Colunas (Fácil Adição e Remoção)
+colunas_mapeamento:
+  - origem: "E mail"
+    destino_db: "email"
+    tipo: "string"
+    obrigatoria: true
+
+  - origem: "Valor da string"
+    destino_db: "valor_string"
+    tipo: "string"
+
+  - origem: "Criação em"
+    destino_db: "criacao_em"
+    tipo: "datetime"
+    obrigatoria: true
+
+  - origem: "Obtido em"
+    destino_db: "obtido_em"
+    tipo: "datetime"
+
+  - origem: "Grupo"
+    destino_db: "grupo"
+    tipo: "string"
+
+  - origem: "Identificação Operacional (NOME)"
+    destino_db: "identificacao_operacional"
+    tipo: "string"

@@ -1,0 +1,61 @@
+# ==========================================
+# Configurações com credenciais e senhas
+# ==========================================
+config.yaml
+.env
+.env.*
+*.secret
+*.key
+*.pem
+
+# ==========================================
+# Arquivos de dados e planilhas sensíveis
+# ==========================================
+*.xlsx
+*.xls
+*.csv
+dados_base/*
+!dados_base/.gitkeep
+dados_entrada/*
+!dados_entrada/.gitkeep
+dados_saida/*
+!dados_saida/.gitkeep
+logs/*
+!logs/.gitkeep
+*.log
+
+# ==========================================
+# Ambiente Virtual e Cache Python
+# ==========================================
+venv/
+.venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# ==========================================
+# Ferramentas de desenvolvimento e IA
+# ==========================================
+.agent/
+.agents/
+.antigravity/
+.superpowers/
+docs/superpowers/
+
+# ==========================================
+# IDEs e Sistema Operacional
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
