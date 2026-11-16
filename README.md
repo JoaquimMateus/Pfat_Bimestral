@@ -71,9 +71,3 @@ tail -f logs/automacao_pfat.log
 ./venv/bin/pytest tests/ -v
 ```
 
----
-
-## 🏢 Usando em Outro Computador (Empresa)
-Consulte o guia detalhado em [`docs/GUIA_OUTRO_COMPUTADOR.md`](file:///home/mateus/Área%20de%20trabalho/Pfat_Bimestral/docs/GUIA_OUTRO_COMPUTADOR.md).
-
-
